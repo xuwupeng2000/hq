@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple app for test.
+How to run this app:
+```
+bunlde install
+bundle exec rails server
+visit localhost:3000
+```
 
-Things you may want to cover:
+How to run the spec:
+```
+bunlde install
+bundle exec rspec spec
+```
+Make sure you installed phantomjs to run js enabled feature spec
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
