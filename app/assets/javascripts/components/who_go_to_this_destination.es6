@@ -34,20 +34,23 @@ var WhoGoToThisDestination = React.createClass({
       );
     });
 
+    let closeBtn = (<div className=""> <button className="button small" onClick={this.hideTable}> Close </button> </div>);
+
     let table = (
-      <table className="des-user-table">
-        <tbody>
-          {list}
-        </tbody>
-      </table>
+      <div className="modal">
+        <div className="modal-content">
+          <h3>User list</h3>
+          {closeBtn}
+          <table className="des-user-table">
+            <tbody>
+              {list}
+            </tbody>
+          </table>
+        </div>
+      </div>
     );
 
-    let showBtn;
-    if (this.state.tableHidden) {
-      showBtn = (<div className=""> <button className="button small" onClick={this.fetchUsers}> View who go to this destination </button> </div>);
-    } else {
-      showBtn = (<div className=""> <button className="button small" onClick={this.hideTable}> Close </button> </div>);
-    }
+    let showBtn = (<div className=""> <button className="button small" onClick={this.fetchUsers}> View who go to this destination </button> </div>);
 
     let plzWaitMsg = (
       <div className=""> We are loading data from server please wait ...</div>
