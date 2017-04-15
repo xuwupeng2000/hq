@@ -20,7 +20,8 @@
           <% end %>
 
         </div>
-        <div class="small-12 large-12 columns">
+        <div class="small-12 large-12 large-offset-8 columns">
+          <a class="button small" href="<%= "https://maps.google.com?q=#{des.name}"%>" target="_blank"> View it on Googlemap</a>
           <%= react_component("WhoGoToThisDestination", { destination_id: des.id, url: "/api/users_to_destination" }) %>
         </div>
         <hr>

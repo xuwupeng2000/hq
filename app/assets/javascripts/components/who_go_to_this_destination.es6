@@ -44,9 +44,9 @@ var WhoGoToThisDestination = React.createClass({
 
     let showBtn;
     if (this.state.tableHidden) {
-      showBtn = (<div className=""> <button onClick={this.fetchUsers}> View who go to this destination </button> </div>);
+      showBtn = (<div className=""> <button className="button small" onClick={this.fetchUsers}> View who go to this destination </button> </div>);
     } else {
-      showBtn = (<div className=""> <button onClick={this.hideTable}> Close </button> </div>);
+      showBtn = (<div className=""> <button className="button small" onClick={this.hideTable}> Close </button> </div>);
     }
 
     let plzWaitMsg = (
