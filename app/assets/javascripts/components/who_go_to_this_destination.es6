@@ -50,7 +50,8 @@ var WhoGoToThisDestination = React.createClass({
       </div>
     );
 
-    let showBtn = (<div className=""> <button className="button small" onClick={this.fetchUsers}> View who go to this destination </button> </div>);
+    let showBtnId = 'users-to-des-button-' + this.props.destination_id; 
+    let showBtn = (<div className=""> <button className="button small" id={showBtnId} onClick={this.fetchUsers}> View who go to this destination </button> </div>);
 
     let plzWaitMsg = (
       <div className=""> We are loading data from server please wait ...</div>
