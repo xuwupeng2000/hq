@@ -4,6 +4,16 @@ var WhoGoToThisDestination = React.createClass({
   },
 
   fetchUsers: function () {
+    $.ajax({
+      url: this.props.url,
+      data: {destination_id: this.props.destination_id}
+    })
+    .done((data) => {
+      console.log(data);
+    })
+    .fail((err) => {
+      console.log(err);
+    });
 
   },
 

@@ -10,7 +10,7 @@ var ClickToViewMore = React.createClass({
 
   render: function() {
     let content = (
-      <p className="font-smaller">{this.props.content}</p>
+      <p className="font-smaller">{ _.isEmpty(this.props.content) ? "Sorry there is no destination yet" : this.props.content }</p>
     );
 
     return (

@@ -1,1 +1,1 @@
-json.users @users_with_profile
+json.users @users
