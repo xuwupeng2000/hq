@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :destinations, only: [:index]
+  namespace :api do
+    resources :users_to_destination, only: [:index]
+  end
+
+  root to: 'destinations#index'
 end

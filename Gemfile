@@ -9,8 +9,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+gem "react-rails"
 
 # Es6
+gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
 
 group :development, :test do
@@ -18,6 +20,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop', require: false
+  gem 'bullet'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'factory_girl_rails', '~> 4.0'

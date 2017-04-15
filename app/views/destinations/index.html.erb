@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <h3 class="h3-with-more-space"> Destinations and associated projects </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 large-12 columns">
+    <% @destinations.each do |des| %>
+      <div class="row destination-row">
+        <div class="small-12 large-12 columns">
+          <h4>
+            <span> <%= des.name %>  <small><%= des.country_code %></small> </span>
+          </h4>
+
+          <h5> Projects in the destination </h5>
+          <% des.projects.each do |project| %>
+            <h6> Name: <%= project.name %> </h6>
+
+            <%= react_component("ClickToViewMore", { content: project.description }) %>
+          <% end %>
+
+        </div>
+        <%= react_component("WhoGoToThisDestination", { destination_id: des.id }) %>
+        <hr>
+      </div>
+    <% end %>
+  </div>
+</div>
