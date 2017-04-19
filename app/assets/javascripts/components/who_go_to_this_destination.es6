@@ -6,19 +6,23 @@ var WhoGoToThisDestination = React.createClass({
   fetchUsers: function () {
     this.setState({fetching: true});
 
-    $.ajax({
+    let promise = $.ajax({
       url: this.props.url,
       data: {destination_id: this.props.destination_id}
-    })
-    .done((data) => {
-      this.setState({tableHidden: false, users: data.users});
-    })
-    .fail((err) => {
-      alert(err.statusText);
-    })
-    .complete(() => {
-      this.setState({fetching: false});
-    });
+    }).promise();
+
+    const usersSource$ = Rx.Observable.fromPromise(promise);
+    usersSource$.subscribe(
+      (data) => {
+        this.setState({tableHidden: false, users: data.users});
+      }, 
+      (err) => {
+        alert(err.statusText);
+      },
+      () => {
+        this.setState({fetching: false});
+      }
+    );
   },
 
   hideTable: function () {

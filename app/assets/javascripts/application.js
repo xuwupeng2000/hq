@@ -15,5 +15,6 @@
 //= require react
 //= require react_ujs
 //= require lodash
+//= require rx.lite
 //= require_tree ./components
 //= require_tree .
