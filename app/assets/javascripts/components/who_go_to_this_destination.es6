@@ -32,33 +32,38 @@ var WhoGoToThisDestination = React.createClass({
   render: function() {
     let list = this.state.users.map((u) => {
       return (
-        <tr key={u.id}>
-          <td>{u.first_name} {u.last_name}, {u.email}</td>
-        </tr>
+        <div className="columns" key={u.id}>
+          <div className="column">{u.first_name} {u.last_name}, {u.email}</div>
+        </div>
       );
     });
 
-    let closeBtn = (<div className=""> <button className="button small" onClick={this.hideTable}> Close </button> </div>);
+    let closeBtn = (<div className="pull-right"> <button className="button delete" onClick={this.hideTable}> </button> </div>);
 
     let table = (
-      <div className="modal">
+      <div className="modal is-active">
+        <div className="modal-background"> 
+        </div>
         <div className="modal-content">
-          <h3>User list</h3>
-          {closeBtn}
-          <table className="des-user-table">
-            <tbody>
-              {list}
-            </tbody>
-          </table>
+          <div className="columns">
+            <div className="column">
+              {closeBtn} 
+            </div>
+          </div>
+
+          {list}
+
         </div>
       </div>
     );
 
     let showBtnId = 'users-to-des-button-' + this.props.destination_id; 
-    let showBtn = (<div className=""> <button className="button small" id={showBtnId} onClick={this.fetchUsers}> View who go to this destination </button> </div>);
+    let showBtn = (
+      <a className="button is-info is-outlined" id={showBtnId} onClick={this.fetchUsers}> View who go to this destination </a>
+    );
 
     let plzWaitMsg = (
-      <div className=""> We are loading data from server please wait ...</div>
+      <a className="button is-loading">Loading</a>
     );
 
     return (

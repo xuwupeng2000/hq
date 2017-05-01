@@ -10,12 +10,12 @@ var ClickToViewMore = React.createClass({
 
   render: function() {
     let content = (
-      <p className="font-smaller">{ _.isEmpty(this.props.content) ? "Sorry there is no destination yet" : this.props.content }</p>
+      <p className="column is-offset-2">{ _.isEmpty(this.props.content) ? "Sorry there is no destination yet" : this.props.content }</p>
     );
 
     return (
       <div>
-        <div className="large-12 large-offset-1 columns"> 
+        <div className="columns"> 
           { this.state.hidden ? null : content }
         </div>
         <a onClick={this.toggleContent}> {this.state.hidden ? 'View details' : 'Close'} </a>

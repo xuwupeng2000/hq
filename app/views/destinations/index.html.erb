@@ -1,32 +1,33 @@
-<div class="row">
-  <div class="small-12 large-12 columns">
-    <h3 class="h3-with-more-space"> Destinations and associated projects </h3>
+<div class="columns">
+  <div class="column">
+    <h3 class=""> Destinations and associated projects </h3>
   </div>
 </div>
-<div id="destination-content" class="row">
-  <div class="small-12 large-12 columns">
+<div id="destination-content" class="container">
+  <div class="container">
     <% @destinations.each do |des| %>
-      <div class="row destination-row">
-        <div class="small-12 large-12 columns">
-          <h4>
-            <span> <%= des.name %>  <small><%= des.country_code %></small> </span>
-          </h4>
+      <div class="box">
+        <h4 class="title"> <span> <%= des.name %>  <small><%= des.country_code %></small> </span> </h4>
+        <% des.projects.each do |project| %>
+          <div class="columns">
+            <div class="column">
+              <h6> Name: <%= project.name %> </h6>
+              <%= react_component("ClickToViewMore", { content: project.description }) %>
+            </div>
+          </div>
+        <% end %>
 
-          <h5> Projects in the destination </h5>
-          <% des.projects.each do |project| %>
-            <h6> Name: <%= project.name %> </h6>
-
-            <%= react_component("ClickToViewMore", { content: project.description }) %>
-          <% end %>
-
+        <div class="columns card">
+          <div class="column">
+            <%= react_component("WhoGoToThisDestination", { destination_id: des.id, url: "/api/users_to_destination" }) %>
+          </div>
+          <div class="column">
+            <a class="button is-info is-outlined" href="<%= "https://maps.google.com?q=#{des.name}"%>" target="_blank"> View it on Googlemap</a>
+          </div>
         </div>
-        <div class="small-12 large-12 large-offset-8 columns">
-          <a class="button small" href="<%= "https://maps.google.com?q=#{des.name}"%>" target="_blank"> View it on Googlemap</a>
-          <%= react_component("WhoGoToThisDestination", { destination_id: des.id, url: "/api/users_to_destination" }) %>
-        </div>
-        <hr>
       </div>
     <% end %>
+    <hr>
   </div>
 </div>
 
